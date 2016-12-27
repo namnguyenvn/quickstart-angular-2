@@ -1,4 +1,5 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.fontFamily": "sourcecode-pro, 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'"
+    "editor.fontFamily": "sourcecode-pro, 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "eslint.enable": false
 }
