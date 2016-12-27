@@ -38,4 +38,24 @@ export class HeroesComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+
+    if (!name) { return; }
+    this.heroService.create(name)
+        .then(hero => { // ?? why hero here: possible: the create function return a Hero type object, the then callback function catch it, then push into the 2 way binding model (to update the list in client)
+          this.heroes.push(hero);
+          this.selectedHero = null;
+        })
+  }
+
+  delete(hero: Hero): void {
+    this.heroService
+        .delete(hero.id)
+        .then(() => {
+          this.heroes = this.heroes.filter(h => h !== hero); // remove deleted hero from 2 way binding model
+          if (this.selectedHero === hero) { this.selectedHero = null; } // remove selected flag
+        });
+  }
 }
