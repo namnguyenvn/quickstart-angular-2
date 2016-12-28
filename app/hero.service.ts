@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise'; // ?? the Angular Observable doesn't have 
 import { Hero } from './hero';
 // import { HEROES } from './mock-heroes'; use In Memory Web API Instead
 
-@Injectable()
+@Injectable() // to let other components know this service can be injectable
 export class HeroService {
   private heroesUrl = 'api/heroes';
   private headers = new Headers({'Content-Type': 'application/json'});
